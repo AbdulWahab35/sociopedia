@@ -1,53 +1,51 @@
 import React from "react";
-import { Alert, Card } from "antd";
+import { Alert } from "antd";
 import Marquee from "react-fast-marquee";
 import UserItem from "./UserItem";
-const { Meta } = Card;
 
 const UsersList = ({ items }) => {
   if (items.length === 0) {
     return (
-      <Alert
-        banner
-        message={
-          <Marquee pauseOnHover gradient={false}>
-            Ooops! No Users Found Yet. text.
-          </Marquee>
-        }
-      />
+      // <h1>No Users Found</h1>;
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          width: "300px",
+          marginLeft: "40%",
+        }}
+      >
+        <Alert
+          banner
+          message={
+            <Marquee pauseOnHover gradient={false}>
+              Ooops! No Users Found Yet
+            </Marquee>
+          }
+        />
+      </div>
     );
   }
   return (
-    <ul>
+    <>
       {items.map((user) => {
         return (
-          <UserItem
-            key={user.id}
-            id={user.id}
-            image={user.image}
-            name={user.name}
-            placesCount={user.places}
-          />
+          <>
+            <UserItem
+              key={user.id}
+              id={user.id}
+              image={user.image}
+              name={user.name}
+              placesCount={user.places}
+            />
+            <br />
+          </>
         );
       })}
-      <Card
-        hoverable
-        style={{
-          width: 240,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        cover={
-          <img
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
-        }
-      >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
-      </Card>
-    </ul>
+    </>
   );
 };
 
