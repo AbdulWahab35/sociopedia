@@ -1,16 +1,19 @@
-import './App.css';
-import NavBar from './shared/components/NavBar';
-import Users from './users/pages/Users';
+import "./App.css";
+import Places from "./places/pages/Places";
+import NavBar from "./shared/components/NavBar";
+import Users from "./users/pages/Users";
+import {  Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <>
+    <>
       <NavBar />
-      <br/>
-        <Users />
-      </>
-    </div>
+      <Routes>
+        <Route path="/" element={<Users />} />
+        <Route path="/users/pages" element={<Users />} />
+        <Route path="/places/pages" element={<Places />} />
+      </Routes>
+    </>
   );
 }
 
