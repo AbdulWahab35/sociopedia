@@ -29,7 +29,7 @@ function NavBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Link to="/" style={{textDecoration: 'none', color: 'gray'}}>
+      <Link to="/" style={{ textDecoration: "none", color: "gray" }}>
         <Typography variant="h6" sx={{ my: 2 }}>
           SocioPedia
         </Typography>
@@ -38,7 +38,7 @@ function NavBar(props) {
       <List>
         {navItems.map((item) => (
           <Link
-            to={`/${item}/pages`.toLowerCase()}
+            to={`/${item}`.toLowerCase()}
             style={{ textDecoration: "none", color: "gray" }}
           >
             <ListItem key={item} disablePadding>
@@ -58,7 +58,7 @@ function NavBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" style={{backgroundColor: 'navy'}}>
+      <AppBar component="nav" style={{ backgroundColor: "navy" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -69,7 +69,7 @@ function NavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Link to="/" style={{textDecoration: 'none', color: 'white'}}>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <Typography variant="h4" component="div">
               SocioPedia
             </Typography>
@@ -79,7 +79,7 @@ function NavBar(props) {
           >
             {navItems.map((item) => (
               <Link
-                to={`/${item}/pages`.toLowerCase()}
+                to={`/${item}`.toLowerCase()}
                 style={{ textDecoration: "none" }}
               >
                 <Button key={item} sx={{ color: "#fff" }}>
