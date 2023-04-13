@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button, Modal } from "antd";
-import { useState } from "react";
 import Map from "../../shared/components/Map";
+// import Map from "../../shared/components/Map";
+
 const { Meta } = Card;
 const PlaceItems = ({ image, title, description, address, coordinates }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,12 +44,14 @@ const PlaceItems = ({ image, title, description, address, coordinates }) => {
       <br />
       <br />
       <Modal
+      width={'100%'}
+      height={'100vh'}
         title={address}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Map center={coordinates} zoom={16} />
+        <Map center={coordinates} zoom={10} />
       </Modal>
     </div>
   );

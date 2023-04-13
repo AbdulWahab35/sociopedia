@@ -1,21 +1,22 @@
 import React, { useRef, useEffect } from "react";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
-const Maping = async ({ center, zoom }) => {
-  const mapRef = useRef();
+const Map = ({ center, zoom }) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyDxrlb9Y-chdUAquDrumsNCjbJiPoW12B8",
+  });
 
-  const { Map } = await window.google.maps.importLibrary("maps");
-  const { AdvancedMarkerView } = await window.google.maps.importLibrary("marker");
-
-  useEffect(() => {
-    const map = new Map(mapRef.current, {
-      center: center,
-      zoom: zoom,
-    });
-
-    new AdvancedMarkerView({ position: center, map: map });
-  }, [center, zoom]);
-
-  return <div style={{ width: "100%", height: "100%" }} ref={mapRef}></div>;
+  if (!isLoaded) return <h3>Loading.... </h3>;
+  return (
+    <>
+      <div className="container"></div>
+      <GoogleMap
+        zoom={zoom}
+        center={center}
+        mapContainerClassName="container"
+      ></GoogleMap>
+    </>
+  );
 };
 
-export default Maping;
+export default Map;
