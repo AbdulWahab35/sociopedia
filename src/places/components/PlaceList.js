@@ -17,28 +17,6 @@ const PlaceList = ({ items }) => {
   if (items.length === 0) {
     return (
       // If there is no Place this code will render
-
-      //   <Card
-      //     style={{
-      //       width: 300,
-      //       marginTop: 16,
-      //     }}
-      //     actions={[
-      //       <SettingOutlined key="setting" />,
-      //       <EditOutlined key="edit" />,
-      //       <EllipsisOutlined key="ellipsis" />,
-      //     ]}
-      //   >
-      //     <Skeleton loading={loading} avatar active>
-      //       <Meta
-      //         avatar={
-      //           <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2" />
-      //         }
-      //         title="Card title"
-      //         description="This is the description"
-      //       />
-      //     </Skeleton>
-      //   </Card>
       <h1 style={{ textAlign: "center" }}>No Places Yet, Maybe Create One ?</h1>
     );
   }

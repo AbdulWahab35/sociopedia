@@ -24,7 +24,7 @@ const DUMMY_PLACES = [
     imageUrl:
       "https://s39023.pcdn.co/wp-content/uploads/2022/10/Where-Are-Those-Morgans-Empire-State-Building-728x546.jpg.webp",
     address:
-      "Iconic, art deco office tower from 1931 with exhibits & observatories on the 86th & 102nd floors.",
+      "Iconic, batti chowk skp..",
     location: {
       lat: 40.7484445,
       lng: -73.9878531,
@@ -38,7 +38,7 @@ const DUMMY_PLACES = [
     imageUrl:
       "https://s39023.pcdn.co/wp-content/uploads/2022/10/Where-Are-Those-Morgans-Empire-State-Building-728x546.jpg.webp",
     address:
-      "Iconic, art deco office tower from 1931 with exhibits & observatories on the 86th & 102nd floors.",
+      "Iconic, Lahore road sheikhupura",
     location: {
       lat: 40.7484445,
       lng: -73.9878531,
