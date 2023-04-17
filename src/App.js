@@ -7,10 +7,23 @@ import NavBar from "./shared/components/NavBar";
 import Users from "./users/pages/Users";
 import { Route, Routes } from "react-router-dom";
 import { AuthContext } from "./shared/context/auth-context";
+import { useState, useCallback } from "react";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  }, []);
+
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  }, []);
+
   return (
-    <AuthContext.Provider value={'ali'}>
+    <AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    >
       <NavBar />
       <Routes>
         <Route path="/" element={<Login />} />

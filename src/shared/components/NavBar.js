@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth-context";
 
 const NavBar = () => {
+  const auth = useContext(AuthContext);
+
   return (
     <nav
       className="navbar sticky-top navbar-expand-lg mb-5"
@@ -24,7 +28,7 @@ const NavBar = () => {
             SocioPedia
           </a>
         </Link>
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul className=" text-end navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
             <Link style={{ textDecoration: "none" }} to="/users">
               <a className="nav-link" style={{ color: "white" }}>
@@ -32,27 +36,46 @@ const NavBar = () => {
               </a>
             </Link>
           </li>
-          <li className="nav-item">
-            <Link style={{ textDecoration: "none" }} to="/add-new-place">
-              <a className="nav-link" style={{ color: "white" }}>
-                Add New
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link style={{ textDecoration: "none" }} to="/login">
-              <a className="nav-link" style={{ color: "white" }}>
-                Login
-              </a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link style={{ textDecoration: "none" }} to="/signup">
-              <a className="nav-link" style={{ color: "white" }}>
-                Sign Up
-              </a>
-            </Link>
-          </li>
+          {auth.isLoggedIn && (
+            <li className="nav-item">
+              <Link style={{ textDecoration: "none" }} to="/add-new-place">
+                <a className="nav-link" style={{ color: "white" }}>
+                  Add New
+                </a>
+              </Link>
+            </li>
+          )}
+
+          {!auth.isLoggedIn && (
+            <li className="nav-item">
+              <Link style={{ textDecoration: "none" }} to="/login">
+                <a className="nav-link" style={{ color: "white" }}>
+                  Login
+                </a>
+              </Link>
+            </li>
+          )}
+
+          {!auth.isLoggedIn && (
+            <li className="nav-item">
+              <Link style={{ textDecoration: "none" }} to="/signup">
+                <a className="nav-link" style={{ color: "white" }}>
+                  Sign Up
+                </a>
+              </Link>
+            </li>
+          )}
+
+          {auth.isLoggedIn && (
+            <li className="nav-item ">
+              <Link style={{ textDecoration: "none" }} to="/">
+                <a onClick={auth.logout} className="nav-link" style={{ color: "white" }}>
+                  Logout
+                </a>
+              </Link>
+            </li>
+          )}
+
         </ul>
       </div>
     </nav>

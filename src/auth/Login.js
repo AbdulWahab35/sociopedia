@@ -1,8 +1,11 @@
-import React from "react";
-import { Button, Form, Input, Card } from "antd";
+import React, { useContext } from "react";
+import { Button, Form, Input, Card, Divider } from "antd";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../shared/context/auth-context";
 
 const Login = () => {
+  const auth = useContext(AuthContext);
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -79,8 +82,14 @@ const Login = () => {
             }}
           >
             <Link to="/users">
-              <Button type="primary" htmlType="submit">
+              <Button onClick={auth.login} type="primary" htmlType="submit">
                 Login
+              </Button>
+            </Link>
+            <Divider>IF NOT HAVE ACCOUNT</Divider>
+            <Link to="/signup">
+              <Button type="primary" htmlType="submit">
+                Sign Up
               </Button>
             </Link>
           </Form.Item>
